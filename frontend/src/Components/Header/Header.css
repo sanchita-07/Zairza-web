@@ -1,0 +1,19 @@
+.header {
+	padding: 30px 8%;
+	display: flex;
+	justify-content: space-between;
+	font-family: "Gilroy-Light";
+}
+
+.header__right {
+	display: flex;
+	align-items: center;
+}
+
+.header__text {
+	margin-right: 20px;
+}
+
+.header__menu:hover {
+	cursor: pointer;
+}
