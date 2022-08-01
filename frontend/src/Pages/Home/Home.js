@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, HomeSection } from "../../Components";
+import { Header, HomeSection, Footer } from "../../Components";
 
 function Home() {
 	return (
@@ -49,6 +49,18 @@ function Home() {
 				sectionBackgroundColor="#00255C"
 				flexDirection="row-reverse"
 			/>
+			<HomeSection
+				title="Wanna know more about the team"
+				titleColor="black"
+				description="We develop skills in multiple domains related to tech and design. Skills that will help you gain recognition in the industry and help you grow."
+				buttonText="Visit team"
+				buttonColor="#1071FF"
+				arrowIcon="true"
+				buttonTextColor="white"
+				sectionBackgroundColor="#E7F1FF"
+				flexDirection="row"
+			/>
+			<Footer />
 		</>
 	);
 }
