@@ -2,13 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const xss = require("xss-clean");
 const mongoSanitize = require("express-mongo-sanitize");
+const httpStatus = require("http-status");
 
 const config = require("./config/config");
 const morgan = require("./config/morgan");
 const { errorConverter, errorHandler } = require("./api/middlewares/error");
 const ApiError = require("./api/helpers/ApiError");
-const httpStatus = require("http-status");
-const { StatusCodes } = require("http-status-codes");
 
 const app = express();
 
