@@ -3,6 +3,7 @@ const cors = require("cors");
 const xss = require("xss-clean");
 const mongoSanitize = require("express-mongo-sanitize");
 const httpStatus = require("http-status");
+const admin = require("firebase-admin");
 
 const config = require("./config/config");
 const morgan = require("./config/morgan");
@@ -15,6 +16,15 @@ if (config.env !== "test") {
 	app.use(morgan.successHandler);
 	app.use(morgan.errorHandler);
 }
+
+// firebase initialization
+admin.initializeApp({
+	credential: admin.credential.cert({
+		projectId: config.firebase.project_id,
+		clientEmail: config.firebase.client_email,
+		privateKey: config.firebase.private_key,
+	}),
+});
 
 // parsing json data
 app.use(express.json());
@@ -50,4 +60,4 @@ app.use(errorConverter);
 // handle error
 app.use(errorHandler);
 
-module.exports = app;
+module.exports = { app, admin };
