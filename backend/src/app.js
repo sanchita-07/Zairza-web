@@ -17,15 +17,6 @@ if (config.env !== "test") {
 	app.use(morgan.errorHandler);
 }
 
-// firebase initialization
-admin.initializeApp({
-	credential: admin.credential.cert({
-		projectId: config.firebase.project_id,
-		clientEmail: config.firebase.client_email,
-		privateKey: config.firebase.private_key,
-	}),
-});
-
 // parsing json data
 app.use(express.json());
 
@@ -49,6 +40,8 @@ app.get("/", async (req, res, next) => {
 	});
 });
 
+require("./api/routes/index")(app);
+
 // sending back 404 for any unknown api request
 app.use((req, res, next) => {
 	next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
@@ -60,4 +53,4 @@ app.use(errorConverter);
 // handle error
 app.use(errorHandler);
 
-module.exports = { app, admin };
+module.exports = { app };

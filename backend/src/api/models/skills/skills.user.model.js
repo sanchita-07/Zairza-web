@@ -60,9 +60,8 @@ const UserSchema = new mongoose.Schema(
 		},
 		role: {
 			type: String,
-			enum: ["admin", "member", "nonMember"],
-			required: true,
-			default: "nonMember",
+			enum: ["admin", "member", "mentor"],
+			default: "member",
 		},
 	},
 	{
