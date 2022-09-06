@@ -10,13 +10,9 @@ const UserSchema = new mongoose.Schema(
 		name: {
 			type: String,
 		},
-		profileImage: {
-			type: String,
-		},
 		phoneNumber: {
 			type: String,
 		},
-		skills: [String],
 		email: {
 			type: String,
 			unique: true,
@@ -54,14 +50,14 @@ const UserSchema = new mongoose.Schema(
 				"Chemistry",
 			],
 		},
-		newsletterSubscription: {
-			type: Boolean,
-			default: false,
-		},
 		role: {
 			type: String,
 			enum: ["admin", "member", "mentor"],
 			default: "member",
+		},
+		zairzaMember: {
+			type: String,
+			enum: ["member", "notMember"],
 		},
 	},
 	{

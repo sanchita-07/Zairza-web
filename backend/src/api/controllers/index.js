@@ -5,6 +5,13 @@ const {
 
 const {createDomain, updateDomain, readDomain} = require('./domain.controller')
 
+const {
+	getSkillUserDetails,
+	onboardingSkillUser,
+	updateSkillUserDetails,
+} = require("./skillsUser.controller");
+
+
 module.exports = {
 	SkillsAuthController: {
 		loginSkillsUser,
@@ -14,5 +21,11 @@ module.exports = {
 		createDomain,
 		updateDomain,
 		readDomain
-	}
+	},
+	SkillsUserController: {
+		getSkillUserDetails,
+		onboardingSkillUser,
+		updateSkillUserDetails,
+	},
+
 };
