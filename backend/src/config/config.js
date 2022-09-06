@@ -4,20 +4,26 @@ const Joi = require("joi");
 
 dotenv.config({ path: path.join(__dirname, "../../.env") });
 
-const envVarsSchema = Joi.object().keys({
-	NODE_ENV: Joi.string().valid("production", "development", "test").required(),
-	PORT: Joi.number().default(4000),
-	MONGODB_URL: Joi.string().required().description("Mongodb URL"),
-	FIREBASE_PROJECT_ID: Joi.string()
-		.required()
-		.description("Firebase project ID"),
-	FIREBASE_CLIENT_EMAIL: Joi.string()
-		.required()
-		.description("Firebase client email"),
-	FIREBASE_PRIVATE_KEY: Joi.string()
-		.required()
-		.description("Firebase private key"),
-});
+const envVarsSchema = Joi.object()
+	.keys({
+		NODE_ENV: Joi.string()
+			.valid("production", "development", "test")
+			.required(),
+		PORT: Joi.number().default(4000),
+		MONGODB_URL: Joi.string().required().description("Mongodb URL"),
+		FIREBASE_PROJECT_ID: Joi.string()
+			.required()
+			.description("Firebase project ID"),
+		FIREBASE_CLIENT_EMAIL: Joi.string()
+			.required()
+			.description("Firebase client email"),
+		FIREBASE_PRIVATE_KEY: Joi.string()
+			.required()
+			.description("Firebase private key"),
+		NODEMAILER_EMAIL: Joi.string().required().description("Nodemailer email"),
+		NODEMAILER_PASS: Joi.string().required().description("Nodemailer password"),
+	})
+	.unknown();
 
 const { value: envVars, error } = envVarsSchema
 	.prefs({ errors: { label: "key" } })
@@ -39,5 +45,9 @@ module.exports = {
 		project_id: envVars.FIREBASE_PROJECT_ID,
 		client_email: envVars.FIREBASE_CLIENT_EMAIL,
 		private_key: envVars.FIREBASE_PRIVATE_KEY,
+	},
+	nodemailer: {
+		email: envVars.NODEMAILER_EMAIL,
+		password: envVars.NODEMAILER_PASS,
 	},
 };

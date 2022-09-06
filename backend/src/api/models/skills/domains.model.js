@@ -2,7 +2,11 @@ const mongoose = require("mongoose");
 
 const DomainSchema = new mongoose.Schema(
 	{
-		name: {
+		adminName: {
+			type: String,
+			required: true,
+		},
+		domainName: {
 			type: String,
 			required: true,
 		},
@@ -10,17 +14,11 @@ const DomainSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		weekZero: {
-			description: String,
-			resources: [String],
-		},
 		tasks: [
 			{
 				weekNo: Number,
-				weekInterval: String,
-				resource: String,
-				submissionDeadline: Date,
-				finalSubmissionDeadline: Date,
+				resourceLink: String,
+				taskLink: String,
 			},
 		],
 		mentors: [{ type: mongoose.Schema.Types.ObjectId, ref: "skillusers" }],
