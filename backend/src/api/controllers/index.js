@@ -3,7 +3,7 @@ const {
 	signUpSkillsUser,
 } = require("./skillsAuth.controller");
 
-const {createDomain, updateDomain, readDomain} = require('./domain.controller')
+const {createDomain, updateDomain, readDomain} = require('./skillsDomain.controller')
 
 const {
 	getSkillUserDetails,
