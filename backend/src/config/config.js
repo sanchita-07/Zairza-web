@@ -17,17 +17,18 @@ const envVarsSchema = Joi.object().keys({
 	FIREBASE_PRIVATE_KEY: Joi.string()
 		.required()
 		.description("Firebase private key"),
-});
+})
+.unknown();
 
 const { value: envVars, error } = envVarsSchema
 	.prefs({ errors: { label: "key" } })
 	.validate(process.env);
 
 // [Error [ValidationError]: "npm_config_cache_lock_stale" is not allowed]
-// if (error) {
-// 	console.log(error);
-// 	throw new Error(`Config validation error: ${error.message}`);
-// }
+if (error) {
+	console.log(error);
+	throw new Error(`Config validation error: ${error.message}`);
+}
 
 module.exports = {
 	env: envVars.NODE_ENV,
