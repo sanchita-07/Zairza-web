@@ -11,7 +11,10 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@admin-bro/express": "^3.1.0",
+		"@admin-bro/mongoose": "^1.1.0",
 		"@sendgrid/mail": "^7.7.0",
+		"admin-bro": "^4.0.1",
 		"axios": "^0.27.2",
 		"cors": "^2.8.5",
 		"cross-env": "^7.0.3",
