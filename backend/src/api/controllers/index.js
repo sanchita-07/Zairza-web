@@ -3,14 +3,17 @@ const {
 	signUpSkillsUser,
 } = require("./skillsAuth.controller");
 
-const {createDomain, updateDomain, readDomain} = require('./skillsDomain.controller')
+const {
+	createDomain,
+	updateDomain,
+	readDomain,
+} = require("./skillsDomain.controller");
 
 const {
 	getSkillUserDetails,
 	onboardingSkillUser,
 	updateSkillUserDetails,
 } = require("./skillsUser.controller");
-
 
 module.exports = {
 	SkillsAuthController: {
@@ -20,12 +23,11 @@ module.exports = {
 	domainController: {
 		createDomain,
 		updateDomain,
-		readDomain
+		readDomain,
 	},
 	SkillsUserController: {
 		getSkillUserDetails,
 		onboardingSkillUser,
 		updateSkillUserDetails,
 	},
-
 };
