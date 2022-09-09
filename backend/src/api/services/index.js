@@ -10,6 +10,8 @@ const {
 	updateSkillsUser,
 } = require("./skillsUser.services");
 
+const { registerDomain } = require("./skillsDomainReg.services");
+
 module.exports = {
 	SkillAuthService: {
 		loginSkillsUser,
@@ -24,5 +26,8 @@ module.exports = {
 		getSkillsUser,
 		onboardingSkillUser,
 		updateSkillsUser,
+	},
+	SkillsDomainReg: {
+		registerDomain,
 	},
 };

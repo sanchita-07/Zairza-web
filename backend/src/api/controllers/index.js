@@ -15,6 +15,8 @@ const {
 	updateSkillUserDetails,
 } = require("./skillsUser.controller");
 
+const { registerDomain } = require("./skillsDomainReg.controller");
+
 module.exports = {
 	SkillsAuthController: {
 		loginSkillsUser,
@@ -29,5 +31,8 @@ module.exports = {
 		getSkillUserDetails,
 		onboardingSkillUser,
 		updateSkillUserDetails,
+	},
+	SkillsDomainReg: {
+		registerDomain,
 	},
 };
